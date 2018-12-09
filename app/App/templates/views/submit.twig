@@ -1,0 +1,275 @@
+{% extends 'page.default.twig' %}
+
+{% block title %}{{ parent() }} &middot; Submit{% endblock %}
+
+{% block main %}
+<div class="content">
+    <div class="container pt-4">
+        <h2>Vision 20/20 &middot; 2018</h2>
+        <h1>Call for Art <span class="amp">&</span> Artists Submissions</h1>
+
+        <form id="entry-submit" class="pb-4" method="post" enctype="multipart/form-data">
+
+            <p>You can resize images online with <a href="http://resizeimage.net/">http://resizeimage.net/</a></p>
+
+            <h3>About You</h3>
+
+            <div class="p-2 border border-primary rounded mb-4">
+
+                <div class="row">
+                    <div class="form-group col-6">
+                        <label for="form--field--name" class="form-control-label">
+                            Name
+                        </label>
+
+                        <input
+                            type="text"
+                            class="form-control"
+                            id="form--field--name"
+                            name="name"
+                            value=""
+                            required
+                        >
+                    </div>
+
+                    <div class="form-group col-6">
+                        <label for="form--field--email" class="form-control-label">
+                            Email
+                        </label>
+
+                        <input
+                            type="email"
+                            class="form-control"
+                            id="form--field--email"
+                            name="email"
+                            value=""
+                            required
+                        >
+                    </div>
+                </div>
+
+                <div class="row">
+
+                    <div class="form-group col-6">
+                        <label for="form--field--address" class="form-control-label">
+                            Address
+                        </label>
+
+                        <input
+                            type="text"
+                            class="form-control"
+                            id="form--field--address"
+                            name="address"
+                            value=""
+                            required
+                        >
+                    </div>
+
+                    <div class="form-group col-6">
+                        <label for="form--field--phone" class="form-control-label">
+                            Phone (optional)
+                        </label>
+
+                        <input
+                            type="tel"
+                            class="form-control"
+                            id="form--field--phone"
+                            name="phone"
+                            value=""
+                        >
+                    </div>
+
+                </div>
+
+                <div class="row">
+
+                    <div class="form-group col-6">
+                        <label for="form--field--contact" class="form-control-label">
+                            How do you want us to contact you?
+                        </label>
+
+                        <small class="form-text text-muted mb-2">Official communications will always use email, however we will also use phone calls or texts if you prefer for non-essential communications.</small>
+
+                        <div class="form-check">
+                            <label class="form-check-label">
+                                <input
+                                    id="form--field--contact--email"
+                                    class="form-check-input"
+                                    type="radio"
+                                    name="contact"
+                                    value="email"
+                                    checked
+                                    >
+                                Email
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <label class="form-check-label">
+                                <input
+                                    id="form--field--contact--phone"
+                                    class="form-check-input"
+                                    type="radio"
+                                    name="contact"
+                                    value="phone"
+                                    >
+                                Phone
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <label class="form-check-label">
+                                <input
+                                    id="form--field--contact--text"
+                                    class="form-check-input"
+                                    type="radio"
+                                    name="contact"
+                                    value="text"
+                                    >
+                                Text
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group mb-0 col-6">
+                        <label for="form--field--bio" class="form-control-label">
+                            Bio (optional)
+                        </label>
+
+                        <small class="form-text text-muted mb-2">This is not required right away. If you are selected, we will reach out to you to complete your bio.</small>
+
+                        <textarea
+                            id="form--field--bio"
+                            class="form-control"
+                            name="bio"
+                            rows="3"
+                        ></textarea>
+
+                    </div>
+                </div>
+            </div>
+
+            {% if allowed.panel %}
+            <h3>Panel creation entry <small class="text-muted" style="font-size:1rem;">Closes July 16</small></h3>
+
+            <div class="panel-entry p-2 border border-primary rounded mb-4">
+
+                <div class="form-group">
+                    <label for="form--field--examples" class="form-control-label">
+                        Please provide 3 examples of your recent work
+                    </label>
+
+                    <small class="form-text text-muted mb-2">Limit images to a max of 1200px x 1200px</small>
+
+                    <div class="mb-1">
+                        <input type="file" accept="image/*" class="form-control-file form-control-sm" name="panel[example][0]">
+                    </div>
+                    <div class="mb-1">
+                        <input type="file" accept="image/*" class="form-control-file form-control-sm" name="panel[example][1]">
+                    </div>
+                    <div class="mb-1">
+                        <input type="file" accept="image/*" class="form-control-file form-control-sm" name="panel[example][2]">
+                    </div>
+                </div>
+
+                <div class="form-group mb-0">
+                    <label for="form--field--panel_in_person" class="form-control-label">
+                        Is there somewhere where we can see your work in person before July 16?
+                    </label>
+
+                    <textarea
+                        id="form--field--panel_in_person"
+                        class="form-control"
+                        name="panel[in_person]"
+                        rows="3"
+                    ></textarea>
+
+                </div>
+            </div>
+            {% endif %}
+
+            {% if allowed.auction %}
+            <h3>Silent Auction Entry  <small class="text-muted" style="font-size:1rem;">Closes October 17</small></h3>
+            <p><button id="add-another" class="btn btn-outline-success btn-sm" type="button"><i class="fa fa-plus"></i> Add Another</button></p>
+
+            <div class="auction-entry p-2 border border-primary rounded mb-4">
+                <div class="row">
+                    <div class="form-group col-6">
+                        <label class="form-control-label">
+                            Title
+                        </label>
+
+                        <input
+                            type="text"
+                            class="form-control"
+                            name="auction[title][]"
+                            value=""
+                        >
+                    </div>
+
+                    <div class="form-group col-6">
+                        <label class="form-control-label">
+                            Medium
+                        </label>
+
+                        <input
+                            type="text"
+                            class="form-control"
+                            name="auction[medium][]"
+                            value=""
+                        >
+                    </div>
+                </div>
+
+                <div class="row">
+
+                    <div class="form-group col-6">
+                        <label class="form-control-label">
+                            Size
+                        </label>
+
+                        <small class="form-text text-muted mb-2">width x height x depth</small>
+
+                        <input
+                            type="text"
+                            class="form-control"
+                            name="auction[size][]"
+                            value=""
+                        >
+                    </div>
+
+                    <div class="form-group col-6">
+                        <label class="form-control-label">
+                            Minimum Bid Price
+                        </label>
+
+                        <small class="form-text text-muted mb-2">You will recieve at least <code>$ <span class="bid-portion">0</span></code> if this piece is sold</small>
+
+                        <input
+                            type="number"
+                            class="form-control price"
+                            name="auction[minimum][]"
+                            value=""
+                            min="0"
+                            pattern="[0-9]*"
+                        >
+                    </div>
+                </div>
+
+                <div class="form-group mb-0">
+                    <label class="form-control-label">
+                        Photo
+                    </label>
+
+                    <small class="form-text text-muted mb-2">Limit images to a max of 1200px x 1200px</small>
+
+                    <input type="file" accept="image/*" class="form-control-file form-control-sm" name="auction[photo][]">
+
+                </div>
+            </div>
+            {% endif %}
+
+            <button type="submit" class="btn btn-success">Submit</button>
+
+        </form>
+    </div>
+</div>
+{% endblock %}

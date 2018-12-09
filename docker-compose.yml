@@ -1,0 +1,23 @@
+version: '3'
+
+services:
+  mysql:
+    image: mysql:5.7
+    volumes:
+      - ./db/init:/docker-entrypoint-initdb.d
+    env_file: ./app/dev.env
+    ports:
+      - "33060:3306"
+
+  app:
+    restart: unless-stopped
+    build: ./app
+    ports:
+      - "5001:80"
+    volumes:
+      - ./app:/var/www
+    links:
+      - mysql
+    # env_file: ./app/dev.env
+    environment:
+      - APP_ENV=dev

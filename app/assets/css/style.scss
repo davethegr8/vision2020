@@ -1,0 +1,98 @@
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+#app_env {
+    border-radius: 0;
+    font-family: monospace;
+    font-size: 1rem;
+
+    .progress-bar {
+        display: flex;
+        height: 1.8rem;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+.progress {
+    height: auto;
+}
+
+.navbar-dark .navbar-nav .nav-link {
+    color: white;
+}
+
+input.valid {
+    border: 1px solid green;
+}
+
+input.invalid {
+    border: 1px solid red;
+}
+
+main {
+    flex: 1;
+
+    & > :first-child {
+        margin-top: 0;
+    }
+
+    & > :last-child {
+        margin-bottom: 0;
+    }
+}
+
+#messages {
+    margin-top: 1em;
+    margin-bottom: 1em;
+
+    .alert p {
+        margin-bottom: 0;
+    }
+
+    .flash:last-of-type {
+        margin-bottom: 0;
+    }
+}
+
+.amp, .goudy {
+    font-family: 'Goudy Bookletter 1911', serif;
+}
+
+.form-group {
+    .form-control-label {
+        font-weight: bold;
+        margin-bottom: 0rem;
+    }
+
+    .form-control-label + .form-text {
+        margin-top: 0rem;
+    }
+}
+
+footer {
+    padding: 1rem 0;
+    font-size: .85rem;
+
+    .list-inline .list-inline-item {
+        &:after {
+            margin-left: .5rem;
+            content: "•";
+        }
+
+        &:last-of-type:after {
+            margin-left: 0;
+            content: "";
+        }
+    }
+}
+
+.btn-xs {
+    padding: .125rem .25rem;
+    font-size: .875rem;
+    line-height: 1.5;
+    border-radius: .2rem;
+}

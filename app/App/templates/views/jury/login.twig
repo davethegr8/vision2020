@@ -1,0 +1,55 @@
+{% extends 'page.jury.twig' %}
+
+{% block title %}{{ parent() }} &middot; Jury &middot; Login{% endblock %}
+
+{% block main %}
+<div class="content">
+    <div class="container pt-4">
+        <h1>Login</h1>
+
+        <form method="post" class="">
+
+            <div class="row">
+                <div id="form--group--name" class="form-group field-required col-6">
+                    <label for="form--field--name" class="form-control-label">
+                        Name
+                        <small class="text-muted">Required</small>
+                    </label>
+
+                    <input
+                        type="text"
+                        class="form-control"
+                        id="form--field--name"
+                        name="name"
+                        value="{{ fields.name.value }}"
+                        required
+                    >
+                </div>
+            </div>
+
+            <div class="row">
+                <div id="form--group--password" class="form-group field-required col-6">
+                    <label for="form--field--password" class="form-control-label">
+                        Password
+                        <small class="text-muted">Required</small>
+                    </label>
+
+                    <input
+                        type="password"
+                        class="form-control"
+                        id="form--field--password"
+                        name="password"
+                        required
+                    >
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}

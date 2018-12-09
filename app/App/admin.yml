@@ -1,0 +1,67 @@
+version: "1"
+
+routes:
+
+  -
+    url: /2018/admin
+    get:
+      controller: App\View\Admin
+
+  -
+    url: /2018/admin/login
+    get:
+      controller: App\View\Admin\Login
+    post:
+      controller: App\View\Admin\Login
+
+  -
+    url: /2018/admin/logout
+    get:
+      controller: App\View\Admin\Logout
+
+  -
+    url: /2018/admin/invites
+    get:
+      controller: App\View\Admin\Invites
+
+  -
+    url: /2018/admin/invites
+    get:
+      controller: App\View\Admin\Invites
+
+  -
+    url: /2018/admin/invites/add
+    get:
+      controller: App\View\Admin\Invites\Add
+    post:
+      controller: App\View\Admin\Invites\Add
+
+  -
+    url: /2018/admin/invites/edit
+    get:
+      controller: App\View\Admin\Invites\Edit
+
+  -
+    url: /2018/admin/invites/view
+    get:
+      controller: App\View\Admin\Invites\View
+
+  -
+    url: /2018/admin/submissions
+    get:
+      controller: App\View\Admin\Submissions
+
+  -
+    url: /2018/admin/submissions/{id}/view
+    get:
+      controller: App\View\Admin\Submissions\View
+
+  -
+    url: /2018/admin/submissions/{id}/save-status
+    post:
+      controller: App\View\Admin\Submissions\Edit
+
+  -
+    url: /2018/admin/submissions/edit
+    get:
+      controller: App\View\Admin\Submissions\Edit

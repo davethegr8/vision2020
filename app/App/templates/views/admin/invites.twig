@@ -1,0 +1,40 @@
+{% extends 'page.admin.twig' %}
+
+{% block title %}{{ parent() }} &middot; Admin &middot; Invites{% endblock %}
+
+{% block main %}
+<div class="content">
+    <div class="container pt-4">
+        <h1>Invites</h1>
+
+        <p><a href="/2018/admin/invites/add" class="btn btn-sm btn-outline-success"><i class="fa fa-plus"></i> New</a></p>
+
+        <table class="table table-bordered table-sm table-striped">
+            <tr>
+                <th></th>
+                <th>id</th>
+                <th>Key</th>
+                <th>Url</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Hits</th>
+            </tr>
+        {% for invite in invites %}
+            <tr>
+                <td></td>
+                <td>
+                    {# <a href="/2018/admin/invites/{{ invite.id }}/view"> #}
+                        {{ invite.id }}
+                    {# </a> #}
+                </td>
+                <td>{{ invite.key }}</td>
+                <td>https://vision2020.loveburien.com/2018/invite/{{ invite.key }}</td>
+                <td>{{ invite.name }}</td>
+                <td>{{ invite.email }}</td>
+                <td>{{ invite.hits }}</td>
+            </tr>
+        {% endfor %}
+        </table>
+    </div>
+</div>
+{% endblock %}

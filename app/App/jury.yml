@@ -1,0 +1,40 @@
+version: "1"
+
+routes:
+  -
+    url: /2018/jury
+    get:
+      controller: App\View\Jury
+
+  -
+    url: /2018/jury/login
+    get:
+      controller: App\View\Jury\Login
+    post:
+      controller: App\View\Jury\Login
+
+  -
+    url: /2018/jury/logout
+    get:
+      controller: App\View\Jury\Logout
+
+  -
+    url: /2018/jury/submissions
+    get:
+      controller: App\View\Jury\Submissions
+
+  -
+    url: /2018/jury/submissions/{type}
+    get:
+      controller: App\View\Jury\Submissions\Type
+
+  -
+    url: /2018/jury/submissions/view/{type}/{id}
+    get:
+      controller: App\View\Jury\Submissions\View
+
+  -
+    url: /2018/jury/submissions/vote/{type}/{id}
+    post:
+      controller: App\View\Jury\Submissions\Vote
+

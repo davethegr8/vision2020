@@ -1,0 +1,48 @@
+<h3 class="">Panel Submissions</h3>
+
+<table class="table table-bordered">
+    <tr>
+        <th>Total:</th>
+        <td>{{ panels.total }}</td>
+        <td>
+            <a href="/2018/jury/submissions/panels?sort=random" class="btn btn-outline-primary btn-xs">View All - Sort by Random</a>
+            <a href="/2018/jury/submissions/panels" class="btn btn-outline-primary btn-xs">View All - Sort by Submitted</a>
+        </td>
+    </tr>
+    <tr>
+        <th>Not voted on:</th>
+        <td>{{ panels.unvoted }}</td>
+        <td>
+            {% if panels.unvoted > 0 %}
+            <a href="/2018/jury/submissions/view/panels/random?unvoted=true" class="btn btn-outline-primary btn-xs">Random Unvoted</a>
+            <a href="/2018/jury/submissions/view/panels/first?unvoted=true" class="btn btn-outline-primary btn-xs">First Unvoted</a>
+            {% endif %}
+        </td>
+    </tr>
+</table>
+
+<table class="table table-sm table-bordered table-striped">
+    <tr>
+        <th>id</th>
+        {# <th>Images</th> #}
+        <th>Name</th>
+        <th>In Person?</th>
+        <th>Score</th>
+    </tr>
+
+    {% for row in panels.rows %}
+    <tr>
+        <td>
+            <a href="/2018/jury/submissions/view/panels/{{ row.submission_id }}">{{ row.submission_id }}</a>
+        </td>
+        <td>{{ row.name }}</td>
+        {# <td>
+            {% for photo in row.photos %}
+            <a href="">{{ photo.name }}</a><br>
+            {% endfor %}
+        </td> #}
+        <td>{{ row.in_person }}</td>
+        <td>{{ row.score }}</td>
+    </tr>
+    {% endfor %}
+</table>

@@ -1,0 +1,35 @@
+version: "1"
+
+routes:
+  -
+    url: /
+    get:
+      redirect: /2018/
+
+  -
+    url: /2018/
+    get:
+      controller: App\View\Home
+
+  -
+    url: /2018/image/{key}
+    get:
+      controller: App\View\Image
+
+  -
+    url: /2018/call-for-art-and-artists
+    get:
+      controller: App\View\Call
+
+  -
+    url: /2018/submit
+    get:
+      controller: App\View\SubmitClosed
+    post:
+      controller: App\View\SubmitClosed
+
+  -
+    url: /2018/invite/{key}
+    get:
+      controller: App\View\Invite
+

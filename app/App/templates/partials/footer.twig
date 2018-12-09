@@ -1,0 +1,19 @@
+
+<footer class="bg-dark">
+    <div class="container-fluid">
+        <div class="row text-center">
+            <div class="col">
+                <ul class="text-light list-inline mb-0">
+                    <li class="list-inline-item">{{ app.config.project }}</li>
+                    <li class="list-inline-item">2018</li>
+
+                    {% if app.config.repo %}
+                    <li class="list-inline-item"><a class="text-light" href="{{ app.config.repo }}"><i class="fa fa-github-alt"></i></a>
+                    {% endif %}
+
+                    <li class="list-inline-item">Feedback: <a class="text-light" href="mailto:vision2020.ba@gmail.com">vision2020.ba@gmail.com</a>
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer>

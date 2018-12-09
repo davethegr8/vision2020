@@ -1,0 +1,36 @@
+# lint:
+#   - 'jshint'
+
+# build:
+#   - 'less' # must happen before bower concat
+#   - 'html2js' # must happen before concat and clean:tmp
+#   - 'copy'
+#   - 'concat'
+#   - 'bower_concat'
+#   - 'clean:tmp'
+
+# release:
+#   - 'lint'
+#   - 'bower:install'
+#   - 'build'
+#   - 'cssmin'
+#   - 'uglify'
+#   - 'clean:release'
+
+default:
+  # - 'lint'
+  # - 'bower:install'
+  # - 'build'
+  # - 'docs'
+  - copy
+  - sass
+  - cssmin
+  - clean
+
+# docs:
+#   - 'ngdocs'
+
+watch-tasks:
+  - newer:sass
+  - cssmin
+  - clean:css

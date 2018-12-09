@@ -1,0 +1,63 @@
+{% extends 'page.admin.twig' %}
+
+{% block title %}{{ parent() }} &middot; Admin &middot; Submissions{% endblock %}
+
+{% block main %}
+<div class="content">
+    <div class="container pt-4">
+        <h1>Submissions</h1>
+
+        <form method="get" class="mb-4">
+            <div class="form-row">
+                <div class="form-group col-md-4">
+                    <label for="search--status">Status</label>
+                    <select name="status" class="form-control" id="search--status">
+                      <option value="">-</option>
+                      <option value="juried" {% if form.status is defined and form.status == 'juried' %}selected{% endif %}>Juried</option>
+                      <option value="pending" {% if form.status is defined and form.status == 'pending' %}selected{% endif %}>Pending</option>
+                      <option value="accepted" {% if form.status is defined and form.status == 'accepted' %}selected{% endif %}>Accepted</option>
+                      <option value="declined" {% if form.status is defined and form.status == 'declined' %}selected{% endif %}>Declined</option>
+                    </select>
+                </div>
+
+                <div class="form-group col-md-4">
+                    <label for="search--order">Sort By</label>
+                    <select name="order" class="form-control" id="search--order">
+                      <option value="">-</option>
+                      <option value="score" {% if form.order is defined and form.order == 'score' %}selected{% endif %}>Avg Score</option>
+                    </select>
+                </div>
+            </div>
+
+            <input type="submit" value="Search" class="btn btn-outline-success btn-sm">
+        </form>
+
+        <table class="table table-bordered table-sm table-striped">
+            <tr>
+                <th></th>
+                <th>id</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Created</th>
+                <th>Votes</th>
+                <th>Avg</th>
+                <th>Status</th>
+            </tr>
+        {% for submission in submissions %}
+            <tr>
+                <td></td>
+                <td><a href="/2018/admin/submissions/{{ submission.id }}/view">{{ submission.id }}</a></td>
+                <td>{{ submission.name }}</td>
+                <td>{{ submission.email }}</td>
+                <td>{{ submission.phone }}</td>
+                <td>{{ submission.created }}</td>
+                <td>{{ submission.votes }}</td>
+                <td>{{ submission.avg_score }}</td>
+                <td>{% include 'partials/admin/submissions/status-form.twig' with submission %}</td>
+            </tr>
+        {% endfor %}
+        </table>
+    </div>
+</div>
+{% endblock %}

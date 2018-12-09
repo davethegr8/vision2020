@@ -1,0 +1,13 @@
+
+<form data-status={{ panel.status }} class="save-status" method="post" action="/2018/admin/submissions/{{ submission.id }}/save-status">
+<div class="form-group mb-0">
+    <select name="status" class="form-control form-control-sm">
+        <option value="">Choose...</option>
+        <option value="pending" {% if panel.status is defined and panel.status == 'pending' %}selected{% endif %}>Pending</option>
+        <option value="accepted" {% if panel.status is defined and panel.status == 'accepted' %}selected{% endif %}>Accepted</option>
+        <option value="declined" {% if panel.status is defined and panel.status == 'declined' %}selected{% endif %}>Declined</option>
+        <option value="test" {% if panel.status is defined and panel.status == 'test' %}selected{% endif %}>Test</option>
+        <option value="duplicate" {% if panel.status is defined and panel.status == 'duplicate' %}selected{% endif %}>Duplicate</option>
+    </select>
+</div>
+</form>

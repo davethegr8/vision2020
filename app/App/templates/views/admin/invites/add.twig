@@ -1,0 +1,58 @@
+{% extends 'page.admin.twig' %}
+
+{% block title %}{{ parent() }} &middot; Admin &middot; Add Invite{% endblock %}
+
+{% block main %}
+<div class="content">
+    <div class="container pt-4">
+        <h1>New Invite</h1>
+
+        <form method="post">
+            <div class="form-group">
+                <label for="form--field--key" class="form-control-label">
+                    Key
+                </label>
+
+                <input
+                    type="text"
+                    class="form-control"
+                    id="form--field--key"
+                    name="key"
+                    value="{{ key }}"
+                    required
+                >
+            </div>
+            <div class="form-group">
+                <label for="form--field--name" class="form-control-label">
+                    Name
+                </label>
+
+                <input
+                    type="text"
+                    class="form-control"
+                    id="form--field--name"
+                    name="name"
+                    value=""
+                    required
+                >
+            </div>
+            <div class="form-group">
+                <label for="form--field--email" class="form-control-label">
+                    Email
+                </label>
+
+                <input
+                    type="email"
+                    class="form-control"
+                    id="form--field--email"
+                    name="email"
+                    value=""
+                    required
+                >
+            </div>
+
+            <button type="submit" class="btn btn-success">Submit</button>
+        </form>
+    </div>
+</div>
+{% endblock %}

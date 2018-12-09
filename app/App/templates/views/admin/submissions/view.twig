@@ -1,0 +1,90 @@
+{% extends 'page.admin.twig' %}
+
+{% block title %}{{ parent() }} &middot; Admin &middot; View Submission{% endblock %}
+
+{% block main %}
+<div class="content">
+    <div class="container pt-4">
+        <h1>View Submission</h1>
+
+        <table class="table table-bordered table-sm table-striped">
+            <tr>
+                <th></th>
+                <th>id</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Created</th>
+                <th>Avg Score</th>
+                <th>Status</th>
+            </tr>
+            <tr>
+                <td></td>
+                <td><a href="/2018/admin/submissions/{{ submission.id }}/view">{{ submission.id }}</a></td>
+                <td>{{ submission.name }}</td>
+                <td>{{ submission.email }}</td>
+                <td>{{ submission.phone }}</td>
+                <td>{{ submission.created }}</td>
+                <td>{{ panel.avg_score }}</td>
+                <td>{% include 'partials/admin/submissions/status-form.twig' %}</td>
+            </tr>
+        </table>
+
+        <p>
+            <b>Contact</b> {{ submission.contact }}<br>
+            <b>Address</b> {{ submission.address }}<br>
+            <b>Bio</b> {{ submission.bio }}
+        </p>
+
+        <h3>Panel</h3>
+
+        <div class="mb-4 p-2 border rounded border-primary">
+            <div class="row mb-4">
+                {% for photo in panel.photos %}
+                <div class="col-4">
+                    <img class="img-fluid" src="{{ upload_url }}{{ photo.filename }}" />
+                </div>
+                {% endfor %}
+            </div>
+
+            <p class="mb-0"><b>In person?</b> {{ panel.in_person }}</p>
+        </div>
+
+        <h3>Auction</h3>
+
+        {% for entry in auction %}
+        <div class="mb-4 p-2 border rounded border-primary">
+            <div class="row">
+                <div class="col-4">
+                    <img class="img-fluid" src="{{ upload_url }}{{ entry.filename }}" />
+                </div>
+
+                <div class="col-8">
+                    <p>
+                        <b>Title</b> {{ entry.title }}<br>
+                        <b>Size</b> {{ entry.size }}<br>
+                        <b>Medium</b> {{ entry.medium }}<br>
+                        <b>Price</b> {{ entry.price }}
+                    </p>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+
+        <div class="row">
+            <div class="col-md-4">
+                <h3>Votes</h3>
+
+                <table class="table table-sm table-bordered">
+                    <thead class="thead-light">
+                        <tr><th>Juror</th><th>Score</th></tr>
+                    </thead>
+                    {% for vote in votes %}
+                        <tr><td>{{ vote.jury_id }}</td><td>{{ vote.score }}</td></tr>
+                    {% endfor %}
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

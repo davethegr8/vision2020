@@ -1,0 +1,54 @@
+{% extends 'page.admin.twig' %}
+
+
+{% block main %}
+<div class="content">
+    <div class="container pt-4">
+
+        <div class="card-deck mb-4">
+
+            <div class="card" style="max-width: 25%;">
+              <h5 class="card-header">Submissions</h5>
+
+              <div class="card-body">
+                <h3 class="card-text">{{ submissions.total }}</h3>
+                <a href="/2018/admin/submissions" class="btn btn-primary btn-sm">View All</a>
+              </div>
+            </div>
+
+            <div class="card" style="max-width: 25%;">
+              <h5 class="card-header">Panel</h5>
+
+              <div class="card-body">
+                <h3 class="card-text">{{ panels.total }}</h3>
+                <a href="/2018/admin/submissions/panels" class="btn btn-primary btn-sm">View</a>
+              </div>
+            </div>
+
+            <div class="card" style="max-width: 25%;">
+              <h5 class="card-header">Auction</h5>
+
+              <div class="card-body">
+                <h3 class="card-text">{{ auction.total }}</h3>
+                <a href="/2018/admin/submissions/auction" class="btn btn-primary btn-sm">View</a>
+              </div>
+            </div>
+
+        </div>
+
+        <div class="card-deck mb-4">
+            <div class="card" style="max-width: 25%;">
+              <h5 class="card-header">Invites</h5>
+
+              <div class="card-body">
+                <p class="card-text">
+                    <b>Codes:</b> {{ invites.total }}<br>
+                    <b>Hits:</b>  {{ invites.hits }}
+                </p>
+                <a href="/2018/admin/invites" class="btn btn-primary btn-sm">View All</a>
+              </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

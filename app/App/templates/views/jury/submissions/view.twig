@@ -1,0 +1,62 @@
+{% extends 'page.jury.twig' %}
+
+{% block title %}{{ parent() }} &middot; Jury &middot; View Submission{% endblock %}
+
+{% block main %}
+<div class="content">
+    <div class="container pt-4">
+        <h1>View Panel Submission</h1>
+
+        <div class="row mb-4">
+            <div class="col">
+                <p>
+                    <b>Name</b> {{ submission.name }}<br>
+                    <b>Bio</b> {{ submission.bio }}
+                </p>
+            </div>
+
+            <div class="col">
+                <p>
+                    <b>Score</b> (1 = "Definitely NO" / 5 = "Definitely YES")<br>
+                </p>
+
+                <form class="voter btn-group btn-group-toggle" data-toggle="buttons" action="/2018/jury/submissions/vote/panels/{{ submission.id }}">
+                    <label class="btn {% if vote.score == 1 %}btn-success{% else %}btn-info{% endif %}">
+                        <input id="voter--score--1" name="score" value="1" type="radio"> 1
+                    </label>
+
+                    <label class="btn {% if vote.score == 2 %}btn-success{% else %}btn-info{% endif %}">
+                        <input id="voter--score--2" name="score" value="2" type="radio"> 2
+                    </label>
+
+                    <label class="btn {% if vote.score == 3 %}btn-success{% else %}btn-info{% endif %}">
+                        <input id="voter--score--3" name="score" value="3" type="radio"> 3
+                    </label>
+
+                    <label class="btn {% if vote.score == 4 %}btn-success{% else %}btn-info{% endif %}">
+                        <input id="voter--score--4" name="score" value="4" type="radio"> 4
+                    </label>
+
+                    <label class="btn {% if vote.score == 5 %}btn-success{% else %}btn-info{% endif %}">
+                        <input id="voter--score--5" name="score" value="5" type="radio"> 5
+                    </label>
+                </form>
+            </div>
+        </div>
+
+        <div class="mb-4 p-2 border rounded border-primary">
+            <div class="row mb-4">
+                {% for photo in panel.photos %}
+                <div class="col-4">
+                    <a href="{{ upload_url }}{{ photo.filename }}">
+                        <img class="img-fluid" src="{{ upload_url }}{{ photo.filename }}" />
+                    </a>
+                </div>
+                {% endfor %}
+            </div>
+
+            <p class="mb-0"><b>In person?</b> {{ panel.in_person }}</p>
+        </div>
+    </div>
+</div>
+{% endblock %}

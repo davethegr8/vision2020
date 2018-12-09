@@ -1,0 +1,10 @@
+before_script:
+  - apt-get update -qq && apt-get install -y -qq php7.0-cli php7.0-json php7.0-curl git subversion wget rsync zip unzip
+
+deploy:
+  script:
+    - ./install-composer.sh
+    - ./composer --version
+    - ./composer install -d app --no-plugins --no-scripts --ignore-platform-reqs --no-progress
+    - echo "$DREAMHOST_KEY" > ./id_rsa && chmod 600 ./id_rsa
+    - ./sync.sh
