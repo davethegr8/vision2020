@@ -1,7 +1,7 @@
 
 set -e
 
-USERNAME=zastica
+USERNAME=
 HOMEDIR=vision2020.loveburien.com
 
 # mkdir
