@@ -48,7 +48,7 @@ $app->register(new Silex\Provider\TwigServiceProvider, array(
 $app['twig']->addGlobal('hostname', gethostname());
 $app['twig']->addExtension(new Aptoma\Twig\Extension\MarkdownExtension(new Aptoma\Twig\Extension\MarkdownEngine\ParsedownEngine));
 
-$app['slack'] = new App\Slack('https://hooks.slack.com/services/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', [
+$app['slack'] = new App\Slack('', [
     'username' => 'vision2020',
     'icon_emoji' => ':art:'
 ]);
