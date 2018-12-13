@@ -4,7 +4,7 @@ call for art/artists app for Burien Arts Vision 20/20 - 2018. This was used to h
 
 To use in development mode:
 
-- run `composer -d app install`
+- `composer -d app install`
 - `docker-compose up`
 
 In production:
